@@ -1,0 +1,137 @@
+name: Komi Selassi Gayi
+role: Biostatisticien, épidémiologiste et data scientist en santé
+location: Lomé, Togo
+headline: Je transforme les données de santé en preuves, et les preuves en outils.
+intro: >-
+  Je suis biostatisticien, épidémiologiste et data scientist à Lomé, à l'Unité
+  nationale d'intelligence sanitaire (UNIS) du ministère de la Santé du Togo. Ma
+  recherche porte sur la façon dont les données incomplètes et imparfaites
+  modifient les conclusions des essais, des enquêtes et des modèles prédictifs. À
+  côté, je construis des logiciels que l'on peut utiliser sans écrire de code : un
+  poste de travail de suivi-évaluation, des chaînes de contrôle qualité et de
+  traitement de données d'objets connectés, des ressources méthodologiques
+  ouvertes pour les étudiants francophones. Je contribue à des projets open source
+  et je partage ce que j'apprends lors d'interventions publiques.
+about: >-
+  J'ai d'abord été formé comme technicien de laboratoire médical et j'ai passé
+  quatre ans et demi au laboratoire de l'hôpital de Bè-Kpota, un hôpital public de
+  Lomé, où j'ai fini par piloter le système qualité ISO 15189. J'ai ensuite obtenu
+  un M.Sc. en biostatistique et épidémiologie au SRM Institute of Science and
+  Technology de Chennai, en Inde, avec mention très bien (first-class distinction),
+  puis travaillé sur la gestion des données de recherche au Centre for Chronic
+  Disease Control, centre collaborateur de l'OMS à New Delhi. Après un stage en
+  biostatistique au CARESP, j'ai rejoint en novembre 2026 l'Unité nationale
+  d'intelligence sanitaire (UNIS) du ministère de la Santé.
+photo: /images/portrait.jpg
+photo_alt: Komi Selassi Gayi devant le bâtiment UniPod à Lomé
+photo_caption: Togo AI Summer School, Lomé, août 2026
+email: gayikomiselassi@gmail.com
+orcid: 0009-0006-3598-4224
+github: jack-junior
+linkedin: komi-selassi-gayi-404753184
+cv_file: /files/CV_Gayi_Komi_Selassi_FR.pdf
+currently:
+  - Unité nationale d'intelligence sanitaire (UNIS), ministère de la Santé, de l'Hygiène publique, de la Couverture sanitaire universelle et des Assurances, Togo (depuis le 2 novembre 2026).
+  - Délégué jeune au Youth Pre-Conference d'Africa CDC et à la CPHIA 2026, Addis-Abeba, 22-27 novembre 2026.
+  - Deux articles en premier auteur en révision, dans BMC Medical Research Methodology et BMC Public Health.
+themes:
+  - title: Les issues manquantes dans les essais cliniques
+    text: >-
+      Dans les essais en cancérologie avancée, ce sont souvent les patients dont
+      l'état se dégrade qui cessent de remplir les questionnaires de qualité de vie.
+      Mon mémoire de M.Sc. a modélisé ces trajectoires de déclin fonctionnel et
+      comparé l'imputation multiple (MICE) à la pondération par l'inverse de la
+      probabilité de censure (IPCW) pour entraîner des modèles prédictifs sur ces
+      données incomplètes. L'imputation multiple donne des modèles mieux calibrés.
+      Des analyses de sensibilité par ajustement delta testent la solidité des
+      conclusions lorsque les données manquent de façon non aléatoire.
+    question: Quand un modèle entraîné sur des données d'essai incomplètes reste-t-il fiable ?
+  - title: Des modèles prédictifs transposables
+    text: >-
+      Un modèle construit dans un hôpital ou un pays est souvent utilisé ailleurs, là
+      où d'autres examens sont disponibles et où d'autres variables manquent. Je
+      m'intéresse à la façon dont la manquance elle-même change entre le lieu où un
+      modèle est développé et celui où il est utilisé, et à ce que cela coûte en
+      performance dans les contextes à ressources limitées.
+    question: Combien de performance perd-on quand le profil des données manquantes change d'un site à l'autre ?
+  - title: Les inégalités de santé dans le monde
+    text: >-
+      Avec les données 2024 d'ONUSIDA et de la Banque mondiale pour 105 pays, j'ai
+      examiné dans quelle mesure la richesse nationale explique les écarts de
+      mortalité liée au VIH. Elle explique moins de la moitié des différences entre
+      pays, plusieurs pays à faible revenu font mieux que prévu, et les hommes
+      subissent un désavantage de survie constant.
+    question: Au-delà du revenu, qu'est-ce qui distingue les systèmes de santé qui font mieux que prévu ?
+  - title: Santé de l'enfant, paludisme et vaccination
+    text: >-
+      Comme co-auteur, j'ai travaillé sur des enquêtes nationales à plan de sondage
+      complexe : variation géographique du paludisme chez les enfants de moins de
+      cinq ans au Liberia (Malaria Indicator Survey 2022) et écarts de vaccination
+      entre États indiens (NFHS-5).
+skills:
+  - group: Méthodes
+    items: Analyse de survie, modèles longitudinaux, modèles linéaires généralisés et multiniveaux, modélisation bayésienne, traitement des données manquantes (imputation multiple, pondération par probabilité inverse, analyses de sensibilité), essais, cohortes et études cas-témoins, recherche sur la mise en œuvre.
+  - group: Science des données
+    items: Modèles de prédiction clinique et leur validation, apprentissage automatique appliqué à la santé, analyse spatiale et spatio-temporelle, séries temporelles, tableaux de bord et rapports automatisés.
+  - group: Données d'enquête et de routine
+    items: Enquêtes à plan de sondage complexe (EDS, MICS, MIS), données de surveillance et de routine, contrôle qualité et validation des données.
+  - group: Outils
+    items: R et R Shiny, Python, Stata, SAS, REDCap, Quarto, Git, React, Firebase.
+  - group: Qualité et réglementation
+    items: Bonnes pratiques cliniques (NIDA Clinical Trials Network, 2025), management de la qualité au laboratoire ISO 15189.
+talks:
+  - title: "R ou Python ? Cinq mythes à casser"
+    detail: Panéliste, émission du Togo AI Lab, épisode 23 (automatisation et IA agentique). Comment automatiser une chaîne de traitement de données et la confier à des personnes qui ne codent pas, à partir du pipeline d'accélérométrie PCARRS.
+    year: oct. 2026
+  - title: Peut-on faire confiance à un modèle entraîné sur des données de terrain incomplètes ?
+    detail: Togo AI Summer School (TAISS 2026), Université de Lomé et Togo AI Lab.
+    year: août 2026
+  - title: "HIV/AIDS and inequality: exploring economic correlations and gendered disparities worldwide"
+    detail: Conférence internationale ICSSR, School of Public Health, SRM Institute of Science and Technology. Premier prix.
+    year: janv. 2025
+certifications:
+  - title: Bonnes pratiques cliniques (GCP)
+    detail: NIDA Clinical Trials Network
+    year: '2025'
+  - title: Togo AI Summer School (TAISS 2026)
+    detail: Université de Lomé et Togo AI Lab. Apprentissage profond, réseaux convolutifs, génération augmentée par récupération et LLM.
+    year: '2026'
+  - title: Épidémiologie et biostatistique dans l'investigation des épidémies
+    detail: Bootcamp PHIGA, Public Health Interest Group Africa. Sélectionné parmi 6 575 candidatures de 48 pays.
+    year: '2026'
+  - title: GCI World, science des données (en cours)
+    detail: Matsuo-Iwasawa Laboratory, Université de Tokyo. Python, apprentissage automatique, SQL, séries temporelles.
+    year: '2026'
+  - title: Analyse de données avec R
+    detail: Google
+    year: '2024'
+  - title: Science des données avec Python
+    detail: Tutedude
+    year: '2024'
+  - title: Techniques de communication
+    detail: FORCE-N, Sénégal
+    year: '2023'
+  - title: Diagnostic précoce du VIH-1 et de la tuberculose
+    detail: Formation continue des personnels de laboratoire
+    year: '2022'
+awards:
+  - title: Délégué jeune, Youth Pre-Conference d'Africa CDC et CPHIA 2026
+    detail: Sélectionné avec prise en charge complète parmi plus de 10 900 candidatures.
+    year: '2026'
+  - title: Top 3, Data Challenge du Togo AI Lab (économie numérique)
+    detail: Analyse de l'accès aux services numériques et au mobile money au Togo.
+    year: '2026'
+  - title: Premier prix de communication scientifique
+    detail: Conférence internationale ICSSR, School of Public Health, SRM Institute of Science and Technology, pour l'article sur le VIH/sida et les inégalités.
+    year: '2025'
+  - title: Bourse nationale d'excellence
+    detail: Gouvernement togolais (DBS), pour des études supérieures à l'étranger.
+    year: '2023'
+service:
+  - title: EpiStatHub
+    detail: Fondateur et développeur d'une plateforme ouverte de ressources méthodologiques pour les étudiants et les jeunes chercheurs, en particulier francophones.
+  - title: Appui méthodologique
+    detail: Accompagnement de jeunes chercheurs dans leurs propres analyses, à l'origine de plusieurs des articles présentés ici.
+  - title: CJP-MTN Togo
+    detail: Responsable adjoint de la commission projets et programmes du Corps des jeunes contre le paludisme et les maladies tropicales négligées.
+languages: Français (langue maternelle), anglais (maîtrise professionnelle complète).

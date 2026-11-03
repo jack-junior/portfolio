@@ -1,0 +1,36 @@
+---
+import { ui, type Lang } from '../lib/i18n';
+import type { CollectionEntry } from 'astro:content';
+interface Props { pub: CollectionEntry<'publications'>; lang: Lang }
+const { pub, lang } = Astro.props;
+const t = ui[lang];
+const d = pub.data;
+// Put the author's own name in bold inside the author string.
+const authors = d.authors.replace(/Gayi K\.S\./g, '<strong>Gayi K.S.</strong>');
+---
+<li class="pub">
+  <div class="when">{d.year}</div>
+  <div>
+    <h3>{d.title}</h3>
+    <p class="cite"><span set:html={authors} /> <em>{d.venue}</em>.</p>
+    <p class="meta">
+      <span class:list={['status', d.status]}>{t.status[d.status]}</span> · {d.role === 'first' ? t.firstAuthor : t.coAuthor}
+    </p>
+    <div class="links">
+      {d.doi && <a href={`https://doi.org/${d.doi}`}>DOI {d.doi}</a>}
+      {d.code && <a href={d.code}>{t.code}</a>}
+    </div>
+  </div>
+</li>
+
+<style>
+  .pub { display: grid; grid-template-columns: 110px 1fr; gap: 20px; padding: 22px 0; border-top: 1px solid var(--rule); }
+  .pub:first-child { border-top: 0; padding-top: 0; }
+  .when { font-family: var(--mono); font-size: 13px; color: var(--muted); padding-top: 5px; }
+  h3 { font-size: 21px; line-height: 1.3; margin-bottom: 8px; }
+  .cite { color: var(--ink-2); margin: 0 0 6px; font-size: 16px; }
+  .cite :global(strong) { color: var(--ink); font-weight: 600; }
+  .meta { margin: 0; }
+  .status.published { color: var(--accent); }
+  @media (max-width: 560px) { .pub { grid-template-columns: 1fr; gap: 4px; } }
+</style>

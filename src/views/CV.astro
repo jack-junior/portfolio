@@ -1,0 +1,95 @@
+---
+import Base from '../layouts/Base.astro';
+import { ui, type Lang } from '../lib/i18n';
+import { getProfile, getExperience } from '../lib/data';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = ui[lang];
+const p = getProfile(lang);
+const exp = await getExperience(lang);
+const work = exp.filter((e) => e.data.kind === 'work');
+const edu = exp.filter((e) => e.data.kind === 'education');
+---
+<Base lang={lang} route="cv" title="CV" description={p.about}>
+  <header class="page-head"><div class="wrap"><h1>CV</h1><p>{p.about}</p>
+    <p><a class="dl" href={p.cv_file}>{t.cv.download} ↓</a></p></div></header>
+
+  {[[t.cv.experience, work], [t.cv.education, edu]].map(([title, items]: any) => (
+    <section class="section">
+      <div class="wrap row">
+        <h2 class="label">{title}</h2>
+        <ol class="entries">
+          {items.map((e: any) => (
+            <li class="entry job">
+              <div class="when">{e.data.period}</div>
+              <div>
+                <h3>{e.data.role}</h3>
+                <p class="org">{e.data.org} · {e.data.place}</p>
+                <div class="body" set:html={e.rendered?.html} />
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  ))}
+
+  <section class="section">
+    <div class="wrap row">
+      <h2 class="label">{t.cv.awards}</h2>
+      <ol class="entries">
+        {p.awards.map((a) => (<li class="entry"><div class="when">{a.year}</div><div><h3>{a.title}</h3><p>{a.detail}</p></div></li>))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap row">
+      <h2 class="label">{t.cv.talks}</h2>
+      <ol class="entries">
+        {p.talks.map((a) => (<li class="entry"><div class="when">{a.year}</div><div><h3 class="sm">{a.title}</h3><p>{a.detail}</p></div></li>))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap row">
+      <h2 class="label">{t.cv.certifications}</h2>
+      <ol class="entries">
+        {p.certifications.map((a) => (<li class="entry"><div class="when">{a.year}</div><div><h3 class="sm">{a.title}</h3><p>{a.detail}</p></div></li>))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap row">
+      <h2 class="label">{t.cv.service}</h2>
+      <ol class="entries">
+        {p.service.map((a) => (<li class="entry"><div class="when"></div><div><h3 class="sm">{a.title}</h3><p>{a.detail}</p></div></li>))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap row">
+      <h2 class="label">{t.cv.skills}</h2>
+      <dl class="skills">
+        {p.skills.map((s) => (<><dt>{s.group}</dt><dd>{s.items}</dd></>))}
+        <dt>{t.cv.languages}</dt><dd>{p.languages}</dd>
+      </dl>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .org { font-style: italic; font-family: var(--serif); font-size: 17px; color: var(--muted) !important; margin-bottom: 8px !important; }
+  .body :global(ul) { margin: 6px 0 0; padding-left: 18px; color: var(--ink-2); }
+  .body :global(li) { margin-bottom: 4px; }
+  .body :global(p) { color: var(--ink-2); margin: 0; }
+  .sm { font-size: 19px !important; }
+  .dl { font-weight: 500; }
+  .skills { display: grid; grid-template-columns: 220px 1fr; gap: 14px 28px; margin: 0; }
+  dt { font-family: var(--serif); font-size: 19px; }
+  dd { margin: 0; color: var(--ink-2); }
+  @media (max-width: 560px) { .skills { grid-template-columns: 1fr; gap: 4px; } dd { margin-bottom: 12px; } }
+</style>

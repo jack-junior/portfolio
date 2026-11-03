@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import { ui } from '../lib/i18n';
+const t = ui.en;
+---
+<Base lang="en" route="" title="404">
+  <header class="page-head"><div class="wrap"><h1>404</h1><p>{t.notFound} · {ui.fr.notFound}</p>
+  <p><a href="/">{t.backHome}</a> · <a href="/fr/">{ui.fr.backHome}</a></p></div></header>
+</Base>

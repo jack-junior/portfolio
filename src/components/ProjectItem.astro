@@ -1,0 +1,37 @@
+---
+import { ui, type Lang } from '../lib/i18n';
+interface Props { project: { data: any; slug: string }; lang: Lang; compact?: boolean }
+const { project, lang, compact = false } = Astro.props;
+const t = ui[lang];
+const d = project.data;
+---
+<article class:list={['project', { compact }]} id={project.slug}>
+  <div class="side">
+    {d.years && <div class="meta">{d.years}</div>}
+    {d.stack.length > 0 && <div class="meta stack">{d.stack.join(' · ')}</div>}
+  </div>
+  <div>
+    <h3>{d.title}</h3>
+    {d.context && <p class="context">{d.context}</p>}
+    <p class="summary">{d.summary}</p>
+    {(d.demo || d.code) && (
+      <div class="links">
+        {d.demo && <a href={d.demo}>{d.demo_label ?? t.live} ↗</a>}
+        {d.code && <a href={d.code}>{t.code} ↗</a>}
+      </div>
+    )}
+  </div>
+</article>
+
+<style>
+  .project { display: grid; grid-template-columns: 110px 1fr; gap: 20px; padding: 26px 0; border-top: 1px solid var(--rule); }
+  .project:first-child { border-top: 0; padding-top: 0; }
+  .side { display: flex; flex-direction: column; gap: 6px; padding-top: 6px; }
+  .stack { font-size: 12px; line-height: 1.5; }
+  h3 { font-size: 26px; margin-bottom: 4px; }
+  .context { font-style: italic; font-family: var(--serif); font-size: 17px; color: var(--muted); margin: 0 0 10px; }
+  .summary { color: var(--ink-2); margin: 0; max-width: 68ch; }
+  .compact h3 { font-size: 20px; }
+  .compact { padding: 18px 0; }
+  @media (max-width: 560px) { .project { grid-template-columns: 1fr; gap: 6px; } .side { flex-direction: row; gap: 14px; padding: 0; } }
+</style>

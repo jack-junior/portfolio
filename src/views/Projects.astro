@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import ProjectItem from '../components/ProjectItem.astro';
+import { ui, type Lang } from '../lib/i18n';
+import { getProjects } from '../lib/data';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = ui[lang];
+const all = await getProjects(lang);
+const cats = ['tools', 'analyses', 'apps', 'training'] as const;
+const lead = lang === 'fr'
+  ? 'Des outils que j’ai construits pour rendre l’analyse plus sûre et plus accessible, et des analyses menées sur des données réelles.'
+  : 'Tools I have built to make analysis safer and easier to reach, and analyses carried out on real data.';
+---
+<Base lang={lang} route="projects" title={t.nav.projects} description={lead}>
+  <header class="page-head"><div class="wrap"><h1>{t.nav.projects}</h1><p>{lead}</p></div></header>
+  {cats.map((c) => {
+    const items = all.filter((x) => x.data.category === c);
+    return items.length > 0 && (
+      <section class="section">
+        <div class="wrap row">
+          <h2 class="label">{t.categories[c]}</h2>
+          <div>{items.map((x) => <ProjectItem project={x} lang={lang} compact={c === 'training'} />)}</div>
+        </div>
+      </section>
+    );
+  })}
+</Base>

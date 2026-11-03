@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import BarFigure from '../components/BarFigure.astro';
+import { ui, url, type Lang } from '../lib/i18n';
+import { getProfile } from '../lib/data';
+import { figures } from '../lib/figures';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = ui[lang];
+const p = getProfile(lang);
+const f = figures(lang);
+const figFor = [null, null, { n: 1, ...f.hiv }, { n: 2, ...f.malaria }];
+const lead = lang === 'fr'
+  ? 'Quatre fils relient mon travail : les données manquantes dans les essais, la fiabilité des modèles prédictifs d’un contexte à l’autre, les inégalités de santé et les enquêtes nationales en santé de l’enfant.'
+  : 'Four threads run through my work: missing data in trials, whether prediction models hold up from one setting to another, health inequalities, and national surveys in child health.';
+---
+<Base lang={lang} route="research" title={t.research} description={lead}>
+  <header class="page-head"><div class="wrap"><h1>{t.research}</h1><p>{lead}</p></div></header>
+
+  {p.themes.map((th, i) => (
+    <section class="section">
+      <div class="wrap row">
+        <div class="label">{String(i + 1).padStart(2, '0')}</div>
+        <div class="theme">
+          <div>
+            <h2>{th.title}</h2>
+            {th.question && <p class="q">{th.question}</p>}
+            <p>{th.text}</p>
+          </div>
+          {figFor[i] && <BarFigure figLabel={t.fig} sourceLabel={t.source} {...figFor[i]} />}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="section">
+    <div class="wrap row">
+      <h2 class="label">{t.cv.skills}</h2>
+      <dl class="skills">
+        {p.skills.map((s) => (<><dt>{s.group}</dt><dd>{s.items}</dd></>))}
+      </dl>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap row">
+      <div class="label"></div>
+      <div class="links"><a href={url(lang, 'publications')}>{t.allPubs} →</a><a href={url(lang, 'projects')}>{t.allProjects} →</a></div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .theme { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+  .theme:not(:has(figure)) { grid-template-columns: minmax(0, 1fr); max-width: 720px; }
+  .theme h2 { font-size: clamp(28px, 3.6vw, 38px); margin-bottom: 14px; }
+  .q { font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--accent); }
+  .theme p { color: var(--ink-2); }
+  .skills { display: grid; grid-template-columns: 220px 1fr; gap: 14px 28px; margin: 0; }
+  dt { font-family: var(--serif); font-size: 19px; }
+  dd { margin: 0; color: var(--ink-2); }
+  @media (max-width: 900px) { .theme { grid-template-columns: 1fr; gap: 28px; } }
+  @media (max-width: 560px) { .skills { grid-template-columns: 1fr; gap: 4px; } dd { margin-bottom: 12px; } }
+</style>

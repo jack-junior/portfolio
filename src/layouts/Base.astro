@@ -1,0 +1,76 @@
+---
+import '../styles/global.css';
+import { ui, url, type Lang, type Route } from '../lib/i18n';
+import { getProfile } from '../lib/data';
+
+interface Props { lang: Lang; route: Route; title?: string; description?: string; }
+const { lang, route, title, description } = Astro.props;
+const t = ui[lang];
+const p = getProfile(lang);
+const other: Lang = lang === 'en' ? 'fr' : 'en';
+const fullTitle = title ? `${title} · ${p.name}` : `${p.name} · ${p.role}`;
+const desc = description ?? p.intro;
+const canonical = new URL(url(lang, route), Astro.site);
+const nav: [Route, string][] = [
+  ['research', t.nav.research], ['publications', t.nav.publications], ['projects', t.nav.projects],
+  ['cv', t.nav.cv], ['news', t.nav.news],
+];
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={new URL(url('en', route), Astro.site)} />
+    <link rel="alternate" hreflang="fr" href={new URL(url('fr', route), Astro.site)} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(p.photo, Astro.site)} />
+    <meta name="twitter:card" content="summary" />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org', '@type': 'Person', name: p.name, jobTitle: p.role,
+      address: { '@type': 'PostalAddress', addressLocality: 'Lomé', addressCountry: 'TG' },
+      email: `mailto:${p.email}`, url: Astro.site?.toString(),
+      sameAs: [`https://orcid.org/${p.orcid}`, `https://github.com/${p.github}`, `https://www.linkedin.com/in/${p.linkedin}/`],
+    })} />
+  </head>
+  <body>
+    <a class="skip" href="#main">{t.skip}</a>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href={url(lang)}>{p.name}</a>
+        <nav class="nav" aria-label="Main">
+          {nav.map(([r, label]) => (
+            <a href={url(lang, r)} aria-current={r === route ? 'page' : undefined}>{label}</a>
+          ))}
+          <a class="lang" href={url(other, route)} hreflang={other} lang={other} title={t.switchLabel}>{other.toUpperCase()}</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="label">{t.contact}</div>
+        <div>
+          <p class="contact"><a href={`mailto:${p.email}`}>{p.email}</a></p>
+          <p>{t.contactLead}</p>
+          <div class="links">
+            <a href={`https://orcid.org/${p.orcid}`}>ORCID</a>
+            <a href={`https://github.com/${p.github}`}>GitHub</a>
+            <a href={`https://www.linkedin.com/in/${p.linkedin}/`}>LinkedIn</a>
+            <a href={p.cv_file}>{t.cv.download}</a>
+          </div>
+          <p class="small">© {new Date().getFullYear()} {p.name}. {p.location}.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

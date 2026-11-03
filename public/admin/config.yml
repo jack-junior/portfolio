@@ -1,0 +1,170 @@
+# Editor configuration for /admin. Every save becomes a commit on GitHub,
+# and GitHub Actions rebuilds and deploys the site to Firebase Hosting.
+backend:
+  name: github
+  repo: jack-junior/portfolio   # change if the repository gets another name
+  branch: main
+
+media_folder: public/images
+public_folder: /images
+site_url: https://gayikomiselassi.web.app
+locale: fr
+
+i18n:
+  structure: multiple_files
+  locales: [en, fr]
+  default_locale: en
+
+collections:
+  - name: news
+    label: News / Actualités
+    label_singular: News item
+    folder: src/content/news
+    create: true
+    i18n: true
+    slug: "{{year}}-{{slug}}"
+    sortable_fields: [date, title]
+    fields:
+      - { name: title, label: Title, widget: string, i18n: true }
+      - { name: date, label: Date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, i18n: duplicate }
+      - { name: highlight, label: "Show in Highlights on the home page", widget: boolean, default: false, i18n: duplicate }
+      - { name: image, label: Image, widget: image, required: false, i18n: duplicate }
+      - { name: image_alt, label: "Image description (for accessibility)", widget: string, required: false, i18n: true }
+      - { name: link, label: Link, widget: string, required: false, i18n: duplicate }
+      - { name: link_label, label: Link text, widget: string, required: false, i18n: true }
+      - { name: body, label: Text, widget: markdown, i18n: true }
+
+  - name: projects
+    label: Projects / Projets
+    label_singular: Project
+    folder: src/content/projects
+    create: true
+    i18n: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: Title, widget: string, i18n: true }
+      - { name: summary, label: Summary, widget: text, i18n: true }
+      - { name: context, label: "Context (e.g. where it was built)", widget: string, required: false, i18n: true }
+      - name: category
+        label: Category
+        widget: select
+        i18n: duplicate
+        options:
+          - { label: Software and tools, value: tools }
+          - { label: Data analyses, value: analyses }
+          - { label: Applications, value: apps }
+          - { label: Training and smaller analyses, value: training }
+      - { name: years, label: Years, widget: string, required: false, i18n: duplicate }
+      - { name: stack, label: Tools used, widget: list, required: false, i18n: duplicate }
+      - { name: demo, label: Live link, widget: string, required: false, i18n: duplicate }
+      - { name: demo_label, label: Live link text, widget: string, required: false, i18n: true }
+      - { name: code, label: Code link, widget: string, required: false, i18n: duplicate }
+      - { name: featured, label: "Show on the home page", widget: boolean, default: false, i18n: duplicate }
+      - { name: order, label: "Order (small = first)", widget: number, default: 50, i18n: duplicate }
+
+  - name: publications
+    label: Publications
+    label_singular: Publication
+    folder: src/content/publications
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: authors, label: "Authors (write Gayi K.S. to bold it)", widget: string }
+      - { name: venue, label: Journal or venue, widget: string }
+      - { name: year, label: Year, widget: number, value_type: int }
+      - name: status
+        label: Status
+        widget: select
+        options:
+          - { label: Published, value: published }
+          - { label: Under review, value: under_review }
+          - { label: Preprint, value: preprint }
+      - name: role
+        label: Role
+        widget: select
+        options:
+          - { label: First author, value: first }
+          - { label: Co-author, value: co }
+      - { name: doi, label: "DOI (without https://doi.org/)", widget: string, required: false }
+      - { name: code, label: Code link, widget: string, required: false }
+      - { name: featured, label: "Show on the home page", widget: boolean, default: false }
+      - { name: order, label: "Order within its group", widget: number, default: 50 }
+
+  - name: experience
+    label: Experience and education / Parcours
+    label_singular: Entry
+    folder: src/content/experience
+    create: true
+    i18n: true
+    slug: "{{slug}}"
+    fields:
+      - name: kind
+        label: Type
+        widget: select
+        i18n: duplicate
+        options: [{ label: Work, value: work }, { label: Education, value: education }]
+      - { name: role, label: "Role or degree", widget: string, i18n: true }
+      - { name: org, label: Organisation, widget: string, i18n: true }
+      - { name: place, label: Place, widget: string, i18n: true }
+      - { name: period, label: "Period (as displayed)", widget: string, i18n: true }
+      - { name: order, label: "Order (small = first)", widget: number, default: 50, i18n: duplicate }
+      - { name: body, label: "Details (one bullet per line, starting with -)", widget: markdown, i18n: true }
+
+  - name: settings
+    label: Profile and CV / Profil et CV
+    i18n: true
+    files:
+      - name: profile
+        label: Profile
+        file: src/data/profile.yml
+        fields:
+          - { name: name, label: Name, widget: string, i18n: duplicate }
+          - { name: role, label: Role, widget: string, i18n: true }
+          - { name: location, label: Location, widget: string, i18n: true }
+          - { name: headline, label: "Headline (home page title)", widget: string, i18n: true }
+          - { name: intro, label: Intro, widget: text, i18n: true }
+          - { name: about, label: "About (CV page)", widget: text, i18n: true }
+          - { name: photo, label: Photo, widget: image, i18n: duplicate }
+          - { name: photo_alt, label: Photo description, widget: string, i18n: true }
+          - { name: photo_caption, label: Photo caption, widget: string, i18n: true }
+          - { name: email, label: Email, widget: string, i18n: duplicate }
+          - { name: orcid, label: ORCID, widget: string, i18n: duplicate }
+          - { name: github, label: GitHub user, widget: string, i18n: duplicate }
+          - { name: linkedin, label: LinkedIn id, widget: string, i18n: duplicate }
+          - { name: cv_file, label: CV file, widget: file, i18n: true }
+          - { name: currently, label: Currently, widget: list, i18n: true }
+          - name: themes
+            label: Research themes
+            widget: list
+            i18n: true
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: question, label: Question, widget: string, required: false }
+              - { name: text, label: Text, widget: text }
+          - name: skills
+            label: Methods and tools
+            widget: list
+            i18n: true
+            fields: [{ name: group, label: Group, widget: string }, { name: items, label: Items, widget: text }]
+          - name: awards
+            label: Awards
+            widget: list
+            i18n: true
+            fields: [{ name: title, label: Title, widget: string }, { name: detail, label: Detail, widget: string }, { name: year, label: Year, widget: string }]
+          - name: talks
+            label: Talks and panels
+            widget: list
+            i18n: true
+            fields: [{ name: title, label: Title, widget: string }, { name: detail, label: Detail, widget: string }, { name: year, label: Date, widget: string }]
+          - name: certifications
+            label: Certifications and training
+            widget: list
+            i18n: true
+            fields: [{ name: title, label: Title, widget: string }, { name: detail, label: Detail, widget: string }, { name: year, label: Year, widget: string }]
+          - name: service
+            label: Service and community
+            widget: list
+            i18n: true
+            fields: [{ name: title, label: Title, widget: string }, { name: detail, label: Detail, widget: string }]
+          - { name: languages, label: Languages, widget: string, i18n: true }

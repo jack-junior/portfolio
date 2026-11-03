@@ -1,0 +1,133 @@
+name: Komi Selassi Gayi
+role: Biostatistician, epidemiologist and health data scientist
+location: Lomé, Togo
+headline: I turn health data into evidence, and evidence into tools people can use.
+intro: >-
+  I am a biostatistician, epidemiologist and data scientist in Lomé, at the
+  National Health Intelligence Unit (UNIS) of Togo's Ministry of Health. My
+  research asks how incomplete and imperfect data change the conclusions of
+  trials, surveys and prediction models. Alongside it I build software that
+  people can run without writing code: a monitoring-and-evaluation workstation,
+  data-quality and wearable-data pipelines, open methods resources for
+  French-speaking students. I contribute to open-source projects and share what
+  I learn in talks.
+about: >-
+  I trained first as a medical laboratory scientist and spent four and a half years
+  in the laboratory of Bè-Kpota Hospital, a public hospital in Lomé, where I ended
+  up running the ISO 15189 quality system. I then completed an M.Sc. in
+  Biostatistics and Epidemiology at SRM Institute of Science and Technology in
+  Chennai, India, with first-class distinction, and worked on research data
+  management at the Centre for Chronic Disease Control, a WHO Collaborating Centre
+  in New Delhi. After a biostatistics internship at CARESP, I joined the National Health
+  Intelligence Unit (UNIS) of the Ministry of Health in November 2026.
+photo: /images/portrait.jpg
+photo_alt: Komi Selassi Gayi standing in front of the UniPod building in Lomé
+photo_caption: Togo AI Summer School, Lomé, August 2026
+email: gayikomiselassi@gmail.com
+orcid: 0009-0006-3598-4224
+github: jack-junior
+linkedin: komi-selassi-gayi-404753184
+cv_file: /files/CV_Gayi_Komi_Selassi_EN.pdf
+currently:
+  - National Health Intelligence Unit (UNIS), Ministry of Health, Public Hygiene, Universal Health Coverage and Insurance, Togo (since 2 November 2026).
+  - Youth delegate to the Africa CDC Youth Pre-Conference and CPHIA 2026, Addis Ababa, 22–27 November 2026.
+  - Two first-author papers under review, in BMC Medical Research Methodology and BMC Public Health.
+themes:
+  - title: Missing outcomes in clinical trials
+    text: >-
+      In advanced-cancer trials, the patients whose health is declining are often
+      the ones who stop filling in quality-of-life questionnaires. My M.Sc. thesis
+      modelled these functional-decline trajectories and compared multiple
+      imputation (MICE) with inverse-probability-of-censoring weighting (IPCW) for
+      training prediction models on the incomplete data. Multiple imputation gave
+      better-calibrated models. Delta-adjustment sensitivity analyses test how far
+      the conclusions hold when data are missing not at random.
+    question: When does a model trained on incomplete trial data remain trustworthy?
+  - title: Prediction models that travel
+    text: >-
+      A model built in one hospital or country is often used somewhere else, where
+      other tests are available and other variables go missing. I am interested in
+      how missingness itself changes between the place a model is developed and the
+      place it is used, and what this does to its performance in low-resource
+      settings.
+    question: How much performance is lost when the pattern of missing data changes between sites?
+  - title: Inequalities in global health outcomes
+    text: >-
+      With 2024 UNAIDS and World Bank data for 105 countries, I examined how far
+      national wealth explains differences in HIV mortality. It explains less than
+      half of the variation between countries, several low-income countries do
+      better than expected, and men carry a consistent survival disadvantage.
+    question: What, beyond income, separates health systems that do better than expected?
+  - title: Child health, malaria and vaccination
+    text: >-
+      As a co-author I have worked on national survey data with complex sampling
+      designs: geographic variation in malaria among children under five in Liberia
+      (2022 Malaria Indicator Survey) and immunisation gaps between Indian states
+      (NFHS-5).
+skills:
+  - group: Methods
+    items: Survival analysis, longitudinal models, generalised linear and multilevel models, Bayesian modelling, missing-data methods (multiple imputation, inverse probability weighting, sensitivity analysis), trials, cohort and case-control designs, implementation research.
+  - group: Data science
+    items: Clinical prediction models and their validation, machine learning for health data, spatial and spatio-temporal analysis, time series, dashboards and automated reporting.
+  - group: Survey and routine data
+    items: Complex survey designs (DHS, MICS, MIS), surveillance and routine data, data quality control and validation.
+  - group: Tools
+    items: R and R Shiny, Python, Stata, SAS, REDCap, Quarto, Git, React, Firebase.
+  - group: Quality and regulation
+    items: Good Clinical Practice (NIDA Clinical Trials Network, 2025), ISO 15189 laboratory quality management.
+talks:
+  - title: "R or Python? Five myths to break"
+    detail: Panellist, Togo AI Lab broadcast, episode 23 (automation and agentic AI). How to automate a data pipeline and hand it to people who do not code, with the PCARRS accelerometer pipeline as the case study.
+    year: Oct 2026
+  - title: Can you trust a model trained on incomplete field data?
+    detail: Togo AI Summer School (TAISS 2026), University of Lomé and Togo AI Lab.
+    year: Aug 2026
+  - title: "HIV/AIDS and inequality: exploring economic correlations and gendered disparities worldwide"
+    detail: ICSSR international conference, School of Public Health, SRM Institute of Science and Technology. First prize.
+    year: Jan 2025
+certifications:
+  - title: Good Clinical Practice
+    detail: NIDA Clinical Trials Network
+    year: '2025'
+  - title: Togo AI Summer School (TAISS 2026)
+    detail: University of Lomé and Togo AI Lab. Deep learning, CNNs, retrieval-augmented generation and LLMs.
+    year: '2026'
+  - title: Epidemiology and biostatistics in outbreak investigation
+    detail: PHIGA bootcamp, Public Health Interest Group Africa. Selected from 6,575 applicants in 48 countries.
+    year: '2026'
+  - title: GCI World, data science (in progress)
+    detail: Matsuo-Iwasawa Laboratory, University of Tokyo. Python, machine learning, SQL, time series.
+    year: '2026'
+  - title: Data analysis with R programming
+    detail: Google
+    year: '2024'
+  - title: Data science with Python
+    detail: Tutedude
+    year: '2024'
+  - title: Communication skills
+    detail: FORCE-N, Senegal
+    year: '2023'
+  - title: Early diagnosis of HIV-1 and tuberculosis
+    detail: Continuing education for laboratory staff
+    year: '2022'
+awards:
+  - title: Youth delegate, Africa CDC Youth Pre-Conference and CPHIA 2026
+    detail: Selected with full sponsorship from more than 10,900 applicants.
+    year: '2026'
+  - title: Top 3, Togo AI Lab Data Challenge (Digital Economy)
+    detail: Analysis of digital and mobile-money access across Togo.
+    year: '2026'
+  - title: First prize for scientific communication
+    detail: ICSSR international conference, School of Public Health, SRM Institute of Science and Technology, for the paper on HIV/AIDS and inequality.
+    year: '2025'
+  - title: National excellence scholarship
+    detail: Government of Togo (DBS), for graduate studies abroad.
+    year: '2023'
+service:
+  - title: EpiStatHub
+    detail: Founder and developer of an open platform of methods resources for students and young researchers, especially French-speaking ones.
+  - title: Methodological support
+    detail: Help to young researchers with their own analyses, which led to several of the papers listed here.
+  - title: CJP-MTN Togo
+    detail: Deputy head of the projects and programmes commission of the youth corps against malaria and neglected tropical diseases.
+languages: French (native), English (full professional proficiency).

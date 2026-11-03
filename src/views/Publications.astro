@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import PubItem from '../components/PubItem.astro';
+import { ui, type Lang } from '../lib/i18n';
+import { getProfile, getPublications } from '../lib/data';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = ui[lang];
+const p = getProfile(lang);
+const pubs = await getPublications();
+const groups = [
+  { title: t.firstAuthor, items: pubs.filter((x) => x.data.role === 'first') },
+  { title: t.coAuthor, items: pubs.filter((x) => x.data.role === 'co') },
+];
+---
+<Base lang={lang} route="publications" title={t.nav.publications}>
+  <header class="page-head"><div class="wrap"><h1>{t.nav.publications}</h1>
+    <p><a href={`https://orcid.org/${p.orcid}`}>{t.orcidNote} ({p.orcid})</a></p></div></header>
+  {groups.map((g) => (
+    <section class="section">
+      <div class="wrap row">
+        <h2 class="label">{g.title}</h2>
+        <ol class="entries">{g.items.map((x) => <PubItem pub={x} lang={lang} />)}</ol>
+      </div>
+    </section>
+  ))}
+</Base>

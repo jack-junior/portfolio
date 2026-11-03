@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import { ui, monthYear, type Lang } from '../lib/i18n';
+import { getNews } from '../lib/data';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = ui[lang];
+const news = await getNews(lang);
+const years = [...new Set(news.map((n) => n.data.date.getUTCFullYear()))];
+---
+<Base lang={lang} route="news" title={t.nav.news}>
+  <header class="page-head"><div class="wrap"><h1>{t.nav.news}</h1></div></header>
+  {years.map((y) => (
+    <section class="section">
+      <div class="wrap row">
+        <h2 class="label">{y}</h2>
+        <ol class="entries">
+          {news.filter((n) => n.data.date.getUTCFullYear() === y).map((n) => (
+            <li class="entry" id={n.slug}>
+              <div class="when">{monthYear(n.data.date, lang)}</div>
+              <div class:list={['item', { 'with-img': n.data.image }]}>
+                <div>
+                  <h3>{n.data.title}</h3>
+                  <div class="body" set:html={n.rendered?.html} />
+                  {n.data.link && <div class="links"><a href={n.data.link}>{n.data.link_label ?? n.data.link} ↗</a></div>}
+                </div>
+                {n.data.image && <img src={n.data.image} alt={n.data.image_alt ?? ''} loading="lazy" />}
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  ))}
+</Base>
+
+<style>
+  .item.with-img { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+  .item img { width: 100%; border: 1px solid var(--rule); }
+  .body :global(p) { color: var(--ink-2); margin: 0; max-width: 62ch; }
+  @media (max-width: 760px) { .item.with-img { grid-template-columns: 1fr; gap: 14px; } }
+</style>

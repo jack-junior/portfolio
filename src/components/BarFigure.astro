@@ -1,0 +1,42 @@
+---
+// A small horizontal bar chart drawn in SVG, for real figures taken from the work.
+interface Row { label: string; value: number; display: string; strong?: boolean }
+interface Props { n: number; title: string; rows: Row[]; max?: number; caption: string; source?: string; sourceLabel: string; figLabel: string }
+const { n, title, rows, caption, source, sourceLabel, figLabel } = Astro.props;
+const max = Astro.props.max ?? Math.max(...rows.map((r) => r.value));
+const W = 400, labelW = 160, valueW = 60, barH = 22, gap = 14, top = 6;
+const plotW = W - labelW - valueW;
+const H = top + rows.length * (barH + gap) - gap + 6;
+---
+<figure class="fig">
+  <figcaption class="fig-title"><span class="label">{figLabel} {n}</span> {title}</figcaption>
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`${title}. ${rows.map((r) => `${r.label}: ${r.display}`).join('; ')}`}>
+    {rows.map((r, i) => {
+      const y = top + i * (barH + gap);
+      const w = Math.max(2, (r.value / max) * plotW);
+      return (
+        <g>
+          <text x={labelW - 12} y={y + barH / 2} text-anchor="end" dominant-baseline="central" class="t-label">{r.label}</text>
+          <rect x={labelW} y={y} width={plotW} height={barH} class="track" />
+          <rect x={labelW} y={y} width={w} height={barH} class={r.strong ? 'bar' : 'bar bar-2'} />
+          <text x={labelW + w + 8} y={y + barH / 2} dominant-baseline="central" class="t-value">{r.display}</text>
+        </g>
+      );
+    })}
+  </svg>
+  <p class="fig-caption">{caption}{source && <> <span class="meta">{sourceLabel}: {source}</span></>}</p>
+</figure>
+
+<style>
+  .fig { margin: 0; padding: 20px 0 0; border-top: 2px solid var(--ink); }
+  .fig-title { font-family: var(--serif); font-size: 19px; margin-bottom: 14px; }
+  .fig-title .label { margin-right: 8px; }
+  svg { width: 100%; height: auto; overflow: visible; }
+  .t-label { font-family: var(--sans); font-size: 14px; fill: var(--ink-2); }
+  .t-value { font-family: var(--mono); font-size: 13.5px; fill: var(--ink); }
+  .track { fill: var(--paper-2); }
+  .bar { fill: var(--bar); }
+  .bar-2 { fill: var(--bar-2); }
+  .fig-caption { font-size: 14.5px; color: var(--ink-2); margin: 12px 0 0; max-width: 60ch; }
+  .fig-caption .meta { display: block; margin-top: 6px; }
+</style>
