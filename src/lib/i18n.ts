@@ -20,7 +20,9 @@ export function monthYear(d: Date, lang: Lang) {
 
 export const ui = {
   en: {
-    nav: { research: 'Research', publications: 'Publications', projects: 'Projects', cv: 'CV', news: 'News' },
+    nav: { home: 'Home', research: 'Research', publications: 'Publications', projects: 'Projects', cv: 'CV', news: 'News' },
+    themeLabel: 'Switch between light and dark mode',
+    themeText: 'Theme',
     switchTo: 'Français',
     switchLabel: 'Lire en français',
     currently: 'Currently',
@@ -61,7 +63,9 @@ export const ui = {
     backHome: 'Back to the home page',
   },
   fr: {
-    nav: { research: 'Recherche', publications: 'Publications', projects: 'Projets', cv: 'CV', news: 'Actualités' },
+    nav: { home: 'Accueil', research: 'Recherche', publications: 'Publications', projects: 'Projets', cv: 'CV', news: 'Actualités' },
+    themeLabel: 'Basculer entre mode clair et mode sombre',
+    themeText: 'Thème',
     switchTo: 'English',
     switchLabel: 'Read in English',
     currently: 'En ce moment',
