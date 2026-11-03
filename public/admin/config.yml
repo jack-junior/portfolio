@@ -118,6 +118,7 @@ collections:
       - name: profile
         label: Profile
         file: src/data/profile.yml
+        i18n: true
         fields:
           - { name: name, label: Name, widget: string, i18n: duplicate }
           - { name: role, label: Role, widget: string, i18n: true }
