@@ -1,10 +1,22 @@
-# Builds the site and deploys it to Firebase Hosting on every push to main
-# (including the commits made from the /admin editor).
+# Builds the site and deploys it to Firebase Hosting.
+# - Every push to main (including commits from the /admin editor) goes to a
+#   PREVIEW channel (private-ish URL, expires after 30 days).
+# - The public site is updated only when the workflow is run by hand
+#   (Actions > Deploy to Firebase Hosting > Run workflow, target = live).
+# Once the site is approved, set PUBLISH_ON_PUSH to 'true' below so that every
+# change goes straight to the public site.
 name: Deploy to Firebase Hosting
 on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      target:
+        description: "preview or live"
+        required: true
+        default: preview
+env:
+  PUBLISH_ON_PUSH: 'false'
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -16,8 +28,15 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      - name: Choose channel
+        id: ch
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.target }}" = "live" ]; then echo "channel=live" >> "$GITHUB_OUTPUT";
+          elif [ "${{ github.event_name }}" = "push" ] && [ "$PUBLISH_ON_PUSH" = "true" ]; then echo "channel=live" >> "$GITHUB_OUTPUT";
+          else echo "channel=preview" >> "$GITHUB_OUTPUT"; fi
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          channelId: live
+          channelId: ${{ steps.ch.outputs.channel }}
+          expires: 30d
