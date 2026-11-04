@@ -6,6 +6,8 @@ import type { Lang } from './i18n';
 
 export interface Profile {
   name: string;
+  name_variants: string[];
+  google_site_verification?: string;
   role: string;
   location: string;
   headline: string;

@@ -121,6 +121,8 @@ collections:
         i18n: true
         fields:
           - { name: name, label: Name, widget: string, i18n: duplicate }
+          - { name: name_variants, label: "Other spellings of my name (for search engines)", widget: list, i18n: duplicate }
+          - { name: google_site_verification, label: "Google Search Console code", widget: string, required: false, i18n: duplicate }
           - { name: role, label: Role, widget: string, i18n: true }
           - { name: location, label: Location, widget: string, i18n: true }
           - { name: headline, label: "Headline (home page title)", widget: string, i18n: true }
