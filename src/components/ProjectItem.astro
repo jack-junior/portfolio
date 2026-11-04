@@ -16,8 +16,8 @@ const d = project.data;
     <p class="summary">{d.summary}</p>
     {(d.demo || d.code) && (
       <div class="links">
-        {d.demo && <a href={d.demo}>{d.demo_label ?? t.live} ↗</a>}
-        {d.code && <a href={d.code}>{t.code} ↗</a>}
+        {d.demo && <a href={d.demo}>{d.demo_label ?? t.live}</a>}
+        {d.code && <a href={d.code}>{t.code}</a>}
       </div>
     )}
   </div>

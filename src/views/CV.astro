@@ -12,7 +12,7 @@ const edu = exp.filter((e) => e.data.kind === 'education');
 ---
 <Base lang={lang} route="cv" title="CV" description={p.about}>
   <header class="page-head"><div class="wrap"><h1>CV</h1><p>{p.about}</p>
-    <p><a class="dl" href={p.cv_file}>{t.cv.download} ↓</a></p></div></header>
+    <p><a class="dl" href={p.cv_file}>{t.cv.download}</a></p></div></header>
 
   {[[t.cv.experience, work], [t.cv.education, edu]].map(([title, items]: any) => (
     <section class="section">

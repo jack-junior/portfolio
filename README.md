@@ -1,4 +1,4 @@
-# Portfolio — Komi Selassi Gayi
+# Portfolio, Komi Selassi Gayi
 
 Site statique bilingue (EN à la racine, FR sous /fr/) construit avec Astro 5, éditable via /admin (Sveltia CMS, compatible Decap) et déployé sur Firebase Hosting par GitHub Actions.
 
@@ -17,7 +17,7 @@ npm install · npm run dev (aperçu local) · npm run build (génère dist/)
 ## Mise en ligne
 1. Créer le dépôt GitHub `jack-junior/portfolio` et y pousser ce dossier.
 2. Créer un projet Firebase, mettre son identifiant dans `.firebaserc`.
-3. `firebase init hosting:github` (crée le secret FIREBASE_SERVICE_ACCOUNT) — ou l'ajouter à la main dans Settings > Secrets.
+3. `firebase init hosting:github` (crée le secret FIREBASE_SERVICE_ACCOUNT), ou l'ajouter à la main dans Settings > Secrets.
 4. Chaque push sur `main` (y compris depuis /admin) publie sur un canal d'APERÇU. Le site public n'est mis à jour qu'en lançant le workflow à la main (cible `live`), ou après avoir passé `PUBLISH_ON_PUSH` à `'true'` dans `.github/workflows/deploy.yml`.
 
 ## Éditer depuis /admin

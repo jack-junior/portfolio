@@ -3,7 +3,7 @@ kind: "education"
 role: "Licence en sciences de laboratoire médical et biologique"
 org: "ESTBA, Université de Lomé"
 place: "Lomé, Togo"
-period: "2015 – 2018"
+period: "2015 - 2018"
 order: 12
 ---
 

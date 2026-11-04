@@ -3,7 +3,7 @@ kind: "work"
 role: "Technicien supérieur de laboratoire, puis responsable qualité"
 org: "Laboratoire de l'hôpital de Bè-Kpota"
 place: "Lomé, Togo"
-period: "juin 2019 – déc. 2023"
+period: "juin 2019 - déc. 2023"
 order: 3
 ---
 

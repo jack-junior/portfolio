@@ -3,7 +3,7 @@ kind: "work"
 role: "Research data management and biostatistics intern"
 org: "Centre for Chronic Disease Control (CCDC), WHO Collaborating Centre"
 place: "New Delhi, India"
-period: "Jan – May 2026"
+period: "Jan - May 2026"
 order: 2
 ---
 

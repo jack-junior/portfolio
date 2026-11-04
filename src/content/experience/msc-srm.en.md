@@ -3,7 +3,7 @@ kind: "education"
 role: "M.Sc. Biostatistics and Epidemiology"
 org: "School of Public Health, SRM Institute of Science and Technology"
 place: "Chennai, India"
-period: "2024 – 2026"
+period: "2024 - 2026"
 order: 10
 ---
 

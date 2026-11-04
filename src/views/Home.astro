@@ -61,7 +61,7 @@ const f = figures(lang);
             </li>
           ))}
         </ol>
-        <a class="more" href={url(lang, 'news')}>{t.allNews} →</a>
+        <a class="more" href={url(lang, 'news')}>{t.allNews}</a>
       </div>
     </div>
   </section>
@@ -83,7 +83,7 @@ const f = figures(lang);
           <BarFigure n={1} figLabel={t.fig} sourceLabel={t.source} {...f.hiv} />
           <BarFigure n={2} figLabel={t.fig} sourceLabel={t.source} {...f.togo} />
         </div>
-        <a class="more" href={url(lang, 'research')}>{t.readMore} →</a>
+        <a class="more" href={url(lang, 'research')}>{t.readMore}</a>
       </div>
     </div>
   </section>
@@ -93,7 +93,7 @@ const f = figures(lang);
       <h2 class="label">{t.selectedWork}</h2>
       <div>
         {work.map((w) => <ProjectItem project={w} lang={lang} />)}
-        <a class="more" href={url(lang, 'projects')}>{t.allProjects} →</a>
+        <a class="more" href={url(lang, 'projects')}>{t.allProjects}</a>
       </div>
     </div>
   </section>
@@ -103,7 +103,7 @@ const f = figures(lang);
       <h2 class="label">{t.selectedPubs}</h2>
       <div>
         <ol class="entries">{pubs.map((x) => <PubItem pub={x} lang={lang} />)}</ol>
-        <a class="more" href={url(lang, 'publications')}>{t.allPubs} →</a>
+        <a class="more" href={url(lang, 'publications')}>{t.allPubs}</a>
       </div>
     </div>
   </section>

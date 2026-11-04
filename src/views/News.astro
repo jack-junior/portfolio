@@ -22,7 +22,7 @@ const years = [...new Set(news.map((n) => n.data.date.getUTCFullYear()))];
                 <div>
                   <h3>{n.data.title}</h3>
                   <div class="body" set:html={n.rendered?.html} />
-                  {n.data.link && <div class="links"><a href={n.data.link}>{n.data.link_label ?? n.data.link} ↗</a></div>}
+                  {n.data.link && <div class="links"><a href={n.data.link}>{n.data.link_label ?? n.data.link}</a></div>}
                 </div>
                 {n.data.image && <img src={n.data.image} alt={n.data.image_alt ?? ''} loading="lazy" />}
               </div>

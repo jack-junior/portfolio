@@ -3,7 +3,7 @@ kind: "work"
 role: "Senior laboratory technician, then quality manager"
 org: "Bè-Kpota Hospital Laboratory"
 place: "Lomé, Togo"
-period: "Jun 2019 – Dec 2023"
+period: "Jun 2019 - Dec 2023"
 order: 3
 ---
 

@@ -3,7 +3,7 @@ kind: "work"
 role: "Stagiaire en gestion des données de recherche et biostatistique"
 org: "Centre for Chronic Disease Control (CCDC), centre collaborateur de l'OMS"
 place: "New Delhi, Inde"
-period: "janv. – mai 2026"
+period: "janv. - mai 2026"
 order: 2
 ---
 
