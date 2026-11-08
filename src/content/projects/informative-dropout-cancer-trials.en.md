@@ -8,4 +8,6 @@ stack: ["R"]
 code: "https://github.com/jack-junior/MSc_project"
 featured: false
 order: 12
+image: "/images/projects/informative-dropout.jpg"
+image_alt: "Median AUC of three models as the missing-not-at-random shift grows"
 ---

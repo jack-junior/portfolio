@@ -10,4 +10,6 @@ demo: "https://togo-acces-numerique.streamlit.app/"
 demo_label: "Ouvrir le tableau de bord"
 featured: true
 order: 10
+image: "/images/projects/togo-digital-access.jpg"
+image_alt: "Diapositive du rapport : carte des cantons du Togo selon la distance à l’agence d’opérateur la plus proche"
 ---

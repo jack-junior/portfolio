@@ -6,6 +6,8 @@ years: "2026"
 context: "Centre for Chronic Disease Control, New Delhi"
 stack: ["R", "Shiny", "Python", "GGIR"]
 code: "https://github.com/jack-junior/PCARRS-desktop-web"
-featured: false
+featured: true
 order: 3
+image: "/images/projects/pcarrs.jpg"
+image_alt: "Schéma du pipeline : fichiers bruts d’accéléromètre traités en R et en Python jusqu’à un rapport par participant"
 ---

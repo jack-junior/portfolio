@@ -10,4 +10,6 @@ demo: "https://jack-junior.github.io/SuiviEvalLab/"
 demo_label: "Read the guide"
 featured: true
 order: 0
+image: "/images/projects/suivievallab.jpg"
+image_alt: "SuiviEvalLab analysis screen showing an indicator at baseline and endline"
 ---

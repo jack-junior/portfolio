@@ -8,4 +8,6 @@ stack: ["R"]
 code: "https://github.com/jack-junior/MSc_project"
 featured: false
 order: 12
+image: "/images/projects/informative-dropout.jpg"
+image_alt: "AUC médiane de trois modèles selon l’ampleur du décalage non aléatoire"
 ---

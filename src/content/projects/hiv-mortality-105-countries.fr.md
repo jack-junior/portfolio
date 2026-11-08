@@ -6,6 +6,8 @@ years: "2025 - 2026"
 context: "Article en premier auteur, en révision"
 stack: ["Python"]
 code: "https://github.com/jack-junior/UNAIDS_Epidemic-Scale_Gender-Disparities"
-featured: false
+featured: true
 order: 11
+image: "/images/projects/hiv-mortality.jpg"
+image_alt: "Carte du monde du rapport hommes/femmes de la mortalité liée au VIH"
 ---

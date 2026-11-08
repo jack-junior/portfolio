@@ -6,6 +6,6 @@ context: "Personal project"
 stack: ["React", "Firebase"]
 demo: "https://epistahub.web.app"
 demo_label: "Open EpiStatHub"
-featured: true
+featured: false
 order: 1
 ---

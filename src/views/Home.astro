@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import PubItem from '../components/PubItem.astro';
-import ProjectItem from '../components/ProjectItem.astro';
+import ProjectCard from '../components/ProjectCard.astro';
 import BarFigure from '../components/BarFigure.astro';
 import { ui, url, monthYear, type Lang } from '../lib/i18n';
 import { getProfile, getNews, getProjects, getPublications } from '../lib/data';
@@ -31,7 +31,7 @@ const f = figures(lang);
         </div>
       </div>
       <figure class="portrait">
-        <img src={p.photo} alt={p.photo_alt} width="800" height="1141" loading="eager" />
+        <span class="frame"><img src={p.photo} alt={p.photo_alt} width="800" height="1141" loading="eager" /></span>
         <figcaption class="meta">{p.photo_caption}</figcaption>
       </figure>
     </div>
@@ -50,17 +50,22 @@ const f = figures(lang);
     <div class="wrap row">
       <h2 class="label">{t.highlights}</h2>
       <div>
-        <ol class="entries">
+        <div class="cards hl">
           {highlights.map((n) => (
-            <li class="entry">
-              <div class="when">{monthYear(n.data.date, lang)}</div>
-              <div>
+            <article class="card">
+              {n.data.image ? (
+                <div class="thumb"><img src={n.data.image} alt={n.data.image_alt ?? ''} loading="lazy" /></div>
+              ) : (
+                <div class="thumb plain"><span>{monthYear(n.data.date, lang)}</span></div>
+              )}
+              <div class="content">
+                {n.data.image && <div class="meta">{monthYear(n.data.date, lang)}</div>}
                 <h3>{n.data.title}</h3>
                 <div class="body" set:html={n.rendered?.html} />
               </div>
-            </li>
+            </article>
           ))}
-        </ol>
+        </div>
         <a class="more" href={url(lang, 'news')}>{t.allNews}</a>
       </div>
     </div>
@@ -92,7 +97,7 @@ const f = figures(lang);
     <div class="wrap row">
       <h2 class="label">{t.selectedWork}</h2>
       <div>
-        {work.map((w) => <ProjectItem project={w} lang={lang} />)}
+        <div class="cards">{work.map((w) => <ProjectCard project={w} lang={lang} />)}</div>
         <a class="more" href={url(lang, 'projects')}>{t.allProjects}</a>
       </div>
     </div>
@@ -110,23 +115,35 @@ const f = figures(lang);
 </Base>
 
 <style>
-  .hero { border-bottom: 1px solid var(--rule); }
+  .hero { background: var(--hero); }
+  .hero .label { color: var(--accent); font-weight: 500; }
   .hero-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); padding-top: clamp(40px, 7vw, 88px); padding-bottom: clamp(40px, 6vw, 72px); align-items: end; }
-  h1 { font-size: clamp(42px, 6.6vw, 78px); line-height: 1.02; margin: 18px 0 28px; letter-spacing: -0.02em; }
+  h1 { font-size: clamp(40px, 5.8vw, 70px); line-height: 1.04; margin: 18px 0 28px; letter-spacing: -0.02em; }
+  .hero .links a { display: inline-block; padding: 9px 16px; border: 1px solid var(--accent); border-radius: 4px; text-decoration: none; color: var(--accent); }
+  .hero .links a:first-child { background: var(--accent); color: var(--paper); }
+  .hero .links a:hover { background: var(--accent); color: var(--paper); }
+  .hero .links { gap: 10px; margin-top: 18px; }
   .intro { font-size: 19px; color: var(--ink-2); max-width: 58ch; }
   .portrait { margin: 0; }
-  .portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; filter: saturate(0.9); }
+  .frame { position: relative; display: block; }
+  .frame::before { content: ''; position: absolute; inset: 18px -18px -18px 18px; background: var(--accent); border-radius: 6px; z-index: 0; }
+  .portrait img { position: relative; z-index: 1; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; border-radius: 6px; }
+  .portrait figcaption { margin-top: 38px; }
   .portrait figcaption { margin-top: 10px; }
   @media (max-width: 820px) {
     .hero-grid { grid-template-columns: 1fr; }
     .portrait { max-width: 360px; }
   }
-  .now { list-style: none; margin: 0; padding: 0; font-family: var(--serif); font-size: 22px; line-height: 1.4; }
-  .now li { padding: 0 0 14px; }
-  .now li + li { border-top: 1px solid var(--rule); padding-top: 14px; }
+  .now { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .now li { font-family: var(--serif); font-size: 19px; line-height: 1.4; background: var(--card); border: 1px solid var(--rule); border-left: 4px solid var(--accent); border-radius: 6px; padding: 18px 20px; }
+  @media (max-width: 900px) { .now { grid-template-columns: 1fr; } }
+  .hl .card .thumb { aspect-ratio: 16 / 9; }
+  .hl .card .thumb.plain { aspect-ratio: auto; min-height: 0; padding: 16px 22px; }
+  .hl .card .thumb.plain span { font-size: 22px; }
+  .hl h3 { font-size: 21px; }
   .body :global(p) { color: var(--ink-2); margin: 0; }
   .themes { list-style: none; margin: 0 0 48px; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-  .themes li { border-top: 2px solid var(--ink); padding-top: 14px; }
+  .themes li { background: var(--card); border: 1px solid var(--rule); border-top: 4px solid var(--accent); border-radius: 6px; padding: 18px 20px; }
   .num { font-family: var(--mono); font-size: 13px; color: var(--accent); }
   .themes h3 { font-size: 24px; margin: 6px 0 10px; }
   .q { font-family: var(--serif); font-style: italic; color: var(--ink-2); margin: 0; }

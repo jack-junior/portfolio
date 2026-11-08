@@ -10,4 +10,6 @@ demo: "https://togo-acces-numerique.streamlit.app/"
 demo_label: "Open the dashboard"
 featured: true
 order: 10
+image: "/images/projects/togo-digital-access.jpg"
+image_alt: "Report slide with a map of Togo’s cantons by distance to the nearest operator agency"
 ---

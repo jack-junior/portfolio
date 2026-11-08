@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import ProjectItem from '../components/ProjectItem.astro';
+import ProjectCard from '../components/ProjectCard.astro';
 import { ui, type Lang } from '../lib/i18n';
 import { getProjects } from '../lib/data';
 interface Props { lang: Lang }
@@ -20,7 +21,9 @@ const lead = lang === 'fr'
       <section class="section">
         <div class="wrap row">
           <h2 class="label">{t.categories[c]}</h2>
-          <div>{items.map((x) => <ProjectItem project={x} lang={lang} compact={c === 'training'} />)}</div>
+          {c === 'training'
+            ? <div>{items.map((x) => <ProjectItem project={x} lang={lang} compact />)}</div>
+            : <div class="cards">{items.map((x) => <ProjectCard project={x} lang={lang} />)}</div>}
         </div>
       </section>
     );

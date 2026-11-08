@@ -10,4 +10,6 @@ demo: "https://statpipeline.web.app/"
 demo_label: "Visit StatPipeline"
 featured: false
 order: 5
+image: "/images/projects/statpipeline.jpg"
+image_alt: "StatPipeline home page"
 ---

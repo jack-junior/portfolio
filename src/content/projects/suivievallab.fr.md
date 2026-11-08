@@ -10,4 +10,6 @@ demo: "https://jack-junior.github.io/SuiviEvalLab/"
 demo_label: "Lire le guide"
 featured: true
 order: 0
+image: "/images/projects/suivievallab.jpg"
+image_alt: "Écran d’analyse de SuiviEvalLab : un indicateur en situation de référence et en fin de projet"
 ---
