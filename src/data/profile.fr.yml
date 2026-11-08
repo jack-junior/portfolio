@@ -91,7 +91,6 @@ talks:
   - title: "R ou Python ? Cinq mythes à casser"
     detail: Panéliste, émission du Togo AI Lab, épisode 23 (automatisation et IA agentique). Comment automatiser une chaîne de traitement de données et la confier à des personnes qui ne codent pas, à partir du pipeline d'accélérométrie PCARRS.
     year: oct. 2026
-    link: https://upskill.tutedude.com/certificate/TD-GAYI-DC-0136
   - title: Peut-on faire confiance à un modèle entraîné sur des données de terrain incomplètes ?
     detail: Togo AI Summer School (TAISS 2026), Université de Lomé et Togo AI Lab.
     year: août 2026
@@ -118,6 +117,7 @@ certifications:
   - title: Science des données avec Python
     detail: Tutedude
     year: '2024'
+    link: https://upskill.tutedude.com/certificate/TD-GAYI-DC-0136
   - title: Programmation Python
     detail: Udemy
     year: ''

@@ -87,7 +87,6 @@ talks:
   - title: "R or Python? Five myths to break"
     detail: Panellist, Togo AI Lab broadcast, episode 23 (automation and agentic AI). How to automate a data pipeline and hand it to people who do not code, with the PCARRS accelerometer pipeline as the case study.
     year: Oct 2026
-    link: https://upskill.tutedude.com/certificate/TD-GAYI-DC-0136
   - title: Can you trust a model trained on incomplete field data?
     detail: Togo AI Summer School (TAISS 2026), University of Lomé and Togo AI Lab.
     year: Aug 2026
@@ -114,6 +113,7 @@ certifications:
   - title: Data science with Python
     detail: Tutedude
     year: '2024'
+    link: https://upskill.tutedude.com/certificate/TD-GAYI-DC-0136
   - title: Python programming
     detail: Udemy
     year: ''
