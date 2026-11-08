@@ -1,6 +1,6 @@
 ---
 title: "SuiviEvalLab"
-summary: "Un poste de travail Windows pour les chargés de suivi-évaluation des ONG et des programmes publics, du cadre logique au rapport Word, sans connexion. Il importe des données Excel, Kobo, CSV, SPSS et Stata, tient un journal de nettoyage exportable en script R, estime les indicateurs dans R avec des intervalles de confiance qui respectent le plan de sondage, compare situation de référence et fin de projet, et rédige le rapport sur le modèle de l'organisation. Version 0.5, licence GPL-3.0."
+summary: "Un poste de travail Windows pour les chargés de suivi-évaluation des ONG et des programmes publics, du cadre logique au rapport Word, sans connexion. Il importe des données Excel, Kobo, CSV, SPSS et Stata, tient un journal de nettoyage exportable en script R, estime les indicateurs dans R avec des intervalles de confiance qui respectent le plan de sondage, compare situation de référence et fin de projet, et rédige le rapport sur le modèle de l'organisation. Version 0.5.1, licence GPL-3.0."
 category: "tools"
 years: "2026"
 context: "Logiciel libre de suivi-évaluation, co-développé avec Moudjibou Sanoussi"
@@ -12,4 +12,6 @@ featured: true
 order: 0
 image: "/images/projects/suivievallab.jpg"
 image_alt: "Écran d’analyse de SuiviEvalLab : un indicateur en situation de référence et en fin de projet"
+download: "https://github.com/jack-junior/SuiviEvalLab/releases/latest"
+download_label: "Télécharger pour Windows"
 ---

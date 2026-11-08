@@ -14,9 +14,10 @@ const d = project.data;
     <h3>{d.title}</h3>
     {d.context && <p class="context">{d.context}</p>}
     <p class="summary">{d.summary}</p>
-    {(d.demo || d.code) && (
+    {(d.demo || d.code || d.download) && (
       <div class="links">
         {d.demo && <a href={d.demo}>{d.demo_label ?? t.live}</a>}
+        {d.download && <a href={d.download}>{d.download_label ?? 'Download'}</a>}
         {d.code && <a href={d.code}>{t.code}</a>}
       </div>
     )}

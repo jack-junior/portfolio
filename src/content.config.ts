@@ -30,6 +30,8 @@ const projects = defineCollection({
     code: z.string().optional(),
     demo: z.string().optional(),
     demo_label: z.string().optional(),
+    download: z.string().optional(),
+    download_label: z.string().optional(),
     image: z.string().optional(),
     image_alt: z.string().optional(),
     featured: z.boolean().default(false),

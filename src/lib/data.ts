@@ -25,7 +25,7 @@ export interface Profile {
   themes: { title: string; text: string; question?: string }[];
   skills: { group: string; items: string }[];
   talks: { title: string; detail: string; year: string }[];
-  certifications: { title: string; detail: string; year: string }[];
+  certifications: { title: string; detail: string; year: string; link?: string }[];
   awards: { title: string; detail: string; year: string }[];
   service: { title: string; detail: string }[];
   languages: string;

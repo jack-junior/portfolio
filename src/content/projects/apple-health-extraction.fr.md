@@ -5,7 +5,6 @@ category: "tools"
 years: "2026"
 context: "Centre for Chronic Disease Control, New Delhi"
 stack: ["Python"]
-code: "https://github.com/jack-junior"
 featured: false
 order: 4
 ---

@@ -6,4 +6,6 @@ stack: ["Mobile"]
 code: "https://github.com/jack-junior/MemoLinga"
 featured: false
 order: 41
+download: "https://drive.google.com/file/d/1Q3ARPeqX2aDSuYrLJcOhAyjiVvc2PfFf/view"
+download_label: "Télécharger l’APK"
 ---

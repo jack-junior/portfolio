@@ -5,4 +5,5 @@ category: "training"
 stack: ["Python"]
 featured: false
 order: 33
+code: "https://github.com/jack-junior/data/blob/main/tumor%20detection.ipynb"
 ---

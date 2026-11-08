@@ -56,7 +56,7 @@ const edu = exp.filter((e) => e.data.kind === 'education');
     <div class="wrap row">
       <h2 class="label">{t.cv.certifications}</h2>
       <ol class="entries">
-        {p.certifications.map((a) => (<li class="entry"><div class="when">{a.year}</div><div><h3 class="sm">{a.title}</h3><p>{a.detail}</p></div></li>))}
+        {p.certifications.map((a) => (<li class="entry"><div class="when">{a.year}</div><div><h3 class="sm">{a.title}</h3><p>{a.detail}</p>{a.link && <div class="links"><a href={a.link}>{lang === 'fr' ? 'Vérifier le certificat' : 'Verify the certificate'}</a></div>}</div></li>))}
       </ol>
     </div>
   </section>

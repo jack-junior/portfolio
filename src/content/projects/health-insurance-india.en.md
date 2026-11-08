@@ -5,4 +5,6 @@ category: "training"
 stack: ["R"]
 featured: false
 order: 32
+demo: "https://rpubs.com/GAYI_KOMI_SELASSI/1246258"
+demo_label: "Read on RPubs"
 ---

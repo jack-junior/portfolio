@@ -59,6 +59,10 @@ collections:
       - { name: demo, label: Live link, widget: string, required: false, i18n: duplicate }
       - { name: demo_label, label: Live link text, widget: string, required: false, i18n: true }
       - { name: code, label: Code link, widget: string, required: false, i18n: duplicate }
+      - { name: download, label: Download link, widget: string, required: false, i18n: duplicate }
+      - { name: download_label, label: Download link text, widget: string, required: false, i18n: true }
+      - { name: image, label: Image, widget: image, required: false, i18n: duplicate }
+      - { name: image_alt, label: Image description, widget: string, required: false, i18n: true }
       - { name: featured, label: "Show on the home page", widget: boolean, default: false, i18n: duplicate }
       - { name: order, label: "Order (small = first)", widget: number, default: 50, i18n: duplicate }
 
@@ -164,7 +168,7 @@ collections:
             label: Certifications and training
             widget: list
             i18n: true
-            fields: [{ name: title, label: Title, widget: string }, { name: detail, label: Detail, widget: string }, { name: year, label: Year, widget: string }]
+            fields: [{ name: title, label: Title, widget: string }, { name: detail, label: Detail, widget: string }, { name: year, label: Year, widget: string }, { name: link, label: "Verification link", widget: string, required: false }]
           - name: service
             label: Service and community
             widget: list
