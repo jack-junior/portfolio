@@ -63,6 +63,7 @@ const experience = defineCollection({
     org: z.string(),
     place: z.string(),
     period: z.string(),
+    logo: z.string().optional(),
     order: z.number().default(50),
   }),
 });

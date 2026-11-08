@@ -5,6 +5,7 @@ org: "Bè-Kpota Hospital Laboratory"
 place: "Lomé, Togo"
 period: "Jun 2019 - Dec 2023"
 order: 3
+logo: "/images/news/be-kpota-lab.jpg"
 ---
 
 - Ran the laboratory quality management system under ISO 15189 and followed compliance.

@@ -5,5 +5,6 @@ org: "Ministry of Health, Public Hygiene, Universal Health Coverage and Insuranc
 place: "Lomé, Togo"
 period: "Nov 2026 - present"
 order: 0
+logo: "/images/logos/ministere-sante-togo.png"
 ---
 

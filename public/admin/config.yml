@@ -112,6 +112,7 @@ collections:
       - { name: org, label: Organisation, widget: string, i18n: true }
       - { name: place, label: Place, widget: string, i18n: true }
       - { name: period, label: "Period (as displayed)", widget: string, i18n: true }
+      - { name: logo, label: "Logo or photo", widget: image, required: false, i18n: duplicate }
       - { name: order, label: "Order (small = first)", widget: number, default: 50, i18n: duplicate }
       - { name: body, label: "Details (one bullet per line, starting with -)", widget: markdown, i18n: true }
 

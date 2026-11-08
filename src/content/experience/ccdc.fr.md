@@ -5,6 +5,7 @@ org: "Centre for Chronic Disease Control (CCDC), centre collaborateur de l'OMS"
 place: "New Delhi, Inde"
 period: "janv. - mai 2026"
 order: 2
+logo: "/images/logos/ccdc.png"
 ---
 
 - Chaînes d'analyse reproductibles en R, Python et Stata pour des essais cliniques, des études observationnelles et de la recherche sur la mise en œuvre.

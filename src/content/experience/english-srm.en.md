@@ -5,6 +5,7 @@ org: "SRM Institute of Science and Technology"
 place: "Chennai, India"
 period: "Jan - Jul 2024"
 order: 11
+logo: "/images/logos/srm.png"
 ---
 
 

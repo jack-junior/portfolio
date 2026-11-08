@@ -5,6 +5,7 @@ org: "CARESP, Centre africain de recherche en épidémiologie et santé publique
 place: "Lomé, Togo"
 period: "oct. 2026"
 order: 1
+logo: "/images/logos/caresp.png"
 ---
 
 - Analyse statistique et gestion des données d'études épidémiologiques et de santé publique, au sein du département de biostatistique.

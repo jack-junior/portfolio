@@ -1,6 +1,6 @@
 ---
 title: "EpiStatHub"
-summary: "Une plateforme ouverte de biostatistique et d'épidémiologie : du code prêt à l'emploi en R, Python, SAS et SPSS, des guides pas à pas, des visualisations et des jeux de données d'entraînement. Pensée pour les étudiants et les jeunes chercheurs, en particulier francophones, qui trouvent rarement des ressources méthodologiques dans leur langue."
+summary: "Une application web qui analyse vos données, choisit et exécute le test statistique approprié, puis rédige un compte rendu que l'on peut citer tel quel, le tout dans le navigateur, sans que les données en sortent. Un parcours de formation certifiant complète l'outil pour celles et ceux qui veulent aussi comprendre le pourquoi. Pensée pour les étudiants en santé, les chercheurs et les professionnels de terrain, en particulier francophones."
 category: "tools"
 context: "Projet personnel"
 stack: ["React", "Firebase"]
@@ -8,4 +8,6 @@ demo: "https://epistahub.web.app"
 demo_label: "Ouvrir EpiStatHub"
 featured: false
 order: 1
+image: "/images/projects/epistathub.jpg"
+image_alt: "Page d'accueil d'EpiStatHub"
 ---

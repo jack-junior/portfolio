@@ -5,5 +5,6 @@ org: "Ministère de la Santé, de l'Hygiène publique, de la Couverture sanitair
 place: "Lomé, Togo"
 period: "nov. 2026 - aujourd’hui"
 order: 0
+logo: "/images/logos/ministere-sante-togo.png"
 ---
 

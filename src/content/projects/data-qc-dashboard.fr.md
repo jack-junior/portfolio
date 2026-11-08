@@ -9,4 +9,6 @@ demo: "https://0i9hun-gayi-komi0selassi.shinyapps.io/Data-QC-Dashboard/"
 demo_label: "Ouvrir l'application"
 featured: false
 order: 2
+image: "/images/projects/data-qc-dashboard.jpg"
+image_alt: "Data QC Dashboard après chargement d'un fichier d'enquête de démonstration : observations, variables, complétude et doublons"
 ---
